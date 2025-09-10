@@ -6,15 +6,15 @@ export default function Footer() {
       initial={{ y: 100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden"
+      className="relative bg-gradient-to-br from-slate-900 text-center via-purple-900 to-slate-900 text-white overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/5 to-transparent"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 lg:gap-12">
           {/* Brand Section */}
-          <div className="md:col-span-2">
+          <div className="text-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -23,15 +23,15 @@ export default function Footer() {
               <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent mb-4">
                 DevMarket
               </h3>
-              <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md">
+              <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md text-center">
                 Empowering developers to showcase, sell, and scale their
                 projects in a modern marketplace. Join thousands of creators
                 building the future.
               </p>
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 justify-center items-center">
                 <a
                   href="#"
-                  className="text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                  className="text-gray-400 hover:text-purple-400 transition-colors duration-300 "
                 >
                   <svg
                     className="w-6 h-6"
@@ -78,13 +78,13 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-6 text-white">
               Quick Links
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 flex flex-col justify-center items-center">
               <li>
                 <a
                   href="/"
                   className="text-gray-300 hover:text-purple-400 transition-colors duration-300 flex items-center group"
                 >
-                  <span className="w-0 group-hover:w-2 h-0.5 bg-purple-400 transition-all duration-300 mr-0 group-hover:mr-2"></span>
+                  <span className="w-0 group-hover:w-2 h-0.5 bg-purple-400 transition-all duration-300 mr-0 group-hover:mr-2 text-center"></span>
                   Home
                 </a>
               </li>
@@ -118,7 +118,7 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-6 text-white">
               Get in Touch
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-4 flex flex-col justify-center items-center">
               <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
                   <svg
