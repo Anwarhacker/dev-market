@@ -11,6 +11,7 @@ import { Search, Filter } from "lucide-react";
 export default function ProjectsPage() {
   const [projects, setProjects] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedTech, setSelectedTech] = useState("");
@@ -36,12 +37,15 @@ export default function ProjectsPage() {
   ]);
 
   const fetchProjects = async () => {
+    setLoading(true);
     try {
       const response = await fetch("/api/projects");
       const data = await response.json();
       setProjects(data);
     } catch (error) {
       console.error("Error fetching projects:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -196,22 +200,33 @@ export default function ProjectsPage() {
             </div>
 
             {/* Projects Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProjects.map((project) => (
-                <ProjectCard
-                  key={project._id}
-                  project={project}
-                  onBuyNow={handleBuyNow}
-                />
-              ))}
-            </div>
-
-            {filteredProjects.length === 0 && (
+            {loading ? (
               <div className="text-center py-12">
-                <p className="text-gray-500 text-lg">
-                  No projects found matching your criteria.
+                <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-purple-500"></div>
+                <p className="text-gray-500 text-lg mt-4">
+                  Loading projects...
                 </p>
               </div>
+            ) : (
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredProjects.map((project) => (
+                    <ProjectCard
+                      key={project._id}
+                      project={project}
+                      onBuyNow={handleBuyNow}
+                    />
+                  ))}
+                </div>
+
+                {filteredProjects.length === 0 && (
+                  <div className="text-center py-12">
+                    <p className="text-gray-500 text-lg">
+                      No projects found matching your criteria.
+                    </p>
+                  </div>
+                )}
+              </>
             )}
           </motion.div>
         </div>
