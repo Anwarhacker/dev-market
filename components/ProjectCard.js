@@ -7,7 +7,7 @@ export default function ProjectCard({ project, onBuyNow }) {
     <motion.div
       whileHover={{ y: -8, scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100"
+      className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-500"
     >
       {/* Gradient overlay on hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

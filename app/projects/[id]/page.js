@@ -176,7 +176,7 @@ export default function ProjectDetailsPage() {
                 Setup Procedure
               </h2>
               <div className="prose max-w-none">
-                <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+                <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto text-sm text-black">
                   {project.setupProcedure}
                 </pre>
               </div>
