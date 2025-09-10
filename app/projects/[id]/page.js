@@ -12,7 +12,7 @@ import {
   Github,
   ArrowLeft,
   Calendar,
-  DollarSign,
+  IndianRupee,
 } from "lucide-react";
 
 export default function ProjectDetailsPage() {
@@ -128,9 +128,9 @@ export default function ProjectDetailsPage() {
                 <div className="lg:ml-8 w-full lg:w-auto">
                   <div className="bg-gray-50 p-4 sm:p-6 rounded-lg">
                     <div className="flex items-center mb-4">
-                      <DollarSign className="h-6 w-6 text-green-600 mr-2" />
+                      <IndianRupee className="h-6 w-6 text-green-600 mr-2" />
                       <span className="text-2xl sm:text-3xl font-bold text-green-600">
-                        ${project.price}
+                        ₹{project.price}
                       </span>
                     </div>
                     <div className="flex items-center mb-4">

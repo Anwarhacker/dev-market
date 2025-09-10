@@ -236,7 +236,7 @@ export default function EditProjectPage() {
                     className="block text-gray-700 text-sm font-bold mb-2"
                     htmlFor="price"
                   >
-                    Price ($) *
+                    Price (₹) *
                   </label>
                   <input
                     type="number"

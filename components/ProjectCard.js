@@ -53,7 +53,7 @@ export default function ProjectCard({ project, onBuyNow }) {
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center">
             <span className="text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-              ${project.price}
+              ₹{project.price}
             </span>
           </div>
           <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">

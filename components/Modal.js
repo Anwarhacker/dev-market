@@ -64,9 +64,9 @@ export default function Modal({ isOpen, onClose, project }) {
                 </div>
                 <div className="text-right">
                   <div className="text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                    ${project?.price}
+                    ₹{project?.price}
                   </div>
-                  <div className="text-xs text-gray-500">USD</div>
+                  <div className="text-xs text-gray-500">INR</div>
                 </div>
               </div>
             </motion.div>
