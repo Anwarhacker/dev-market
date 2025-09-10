@@ -104,7 +104,7 @@ export default function Modal({ isOpen, onClose, project }) {
                     <div>
                       <div className="font-medium">Email</div>
                       <div className="text-sm text-blue-100">
-                        contact@devmarket.com
+                        patelanwar647@gmail.com
                       </div>
                     </div>
                   </div>
@@ -124,7 +124,7 @@ export default function Modal({ isOpen, onClose, project }) {
                 </a>
 
                 <a
-                  href="https://wa.me/1234567890?text=Hi, I'm interested in purchasing your project."
+                  href="https://wa.me/9663858568?text=Hi, I'm interested in purchasing your project."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center justify-between w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white p-4 rounded-xl hover:from-green-600 hover:to-emerald-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
@@ -142,7 +142,7 @@ export default function Modal({ isOpen, onClose, project }) {
                     <div>
                       <div className="font-medium">WhatsApp</div>
                       <div className="text-sm text-green-100">
-                        +1 (234) 567-8900
+                        +91-9663858568
                       </div>
                     </div>
                   </div>

@@ -154,7 +154,7 @@ export default function Home() {
                 >
                   <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full animate-pulse"></div>
-                    <div className="absolute inset-2 bg-white rounded-full flex items-center justify-center">
+                    <div className="absolute inset-1 bg-white rounded-full flex items-center justify-center">
                       <div className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-gray-200 to-gray-400 rounded-full flex items-center justify-center">
                         <span className="text-3xl sm:text-4xl">👨‍💻</span>
                       </div>
@@ -168,7 +168,7 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6"
                 >
-                  John Doe
+                  Anwar patel
                 </motion.h3>
 
                 <motion.p
