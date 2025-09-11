@@ -9,15 +9,23 @@ import ProjectCard from "../components/ProjectCard";
 import Modal from "../components/Modal";
 
 export default function Home() {
-  const [featuredProjects, setFeaturedProjects] = useState([]);
+  const [majorProjects, setMajorProjects] = useState([]);
+  const [minorProjects, setMinorProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    fetch("/api/projects/featured")
+    // Fetch major projects
+    fetch("/api/projects/major")
       .then((res) => res.json())
-      .then((data) => setFeaturedProjects(data))
-      .catch((err) => console.error("Error fetching featured projects:", err));
+      .then((data) => setMajorProjects(data))
+      .catch((err) => console.error("Error fetching major projects:", err));
+
+    // Fetch minor projects
+    fetch("/api/projects/minor")
+      .then((res) => res.json())
+      .then((data) => setMinorProjects(data))
+      .catch((err) => console.error("Error fetching minor projects:", err));
   }, []);
 
   const handleBuyNow = (project) => {
@@ -237,7 +245,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Projects */}
+        {/* Major Projects */}
         <section className="py-20 sm:py-24 bg-gradient-to-br from-slate-50 via-white to-slate-50 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-50/30 to-transparent"></div>
 
@@ -254,17 +262,17 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="inline-block px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full text-sm font-medium mb-6 shadow-lg"
               >
-                ⭐ Featured Projects
+                🚀 Major Projects
               </motion.div>
 
               <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 bg-clip-text text-transparent mb-6">
-                Showcase of Excellence
+                Premium Solutions
               </h2>
 
               <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Discover handpicked projects that demonstrate cutting-edge
-                development skills, innovative problem-solving, and modern
-                design principles.
+                Discover comprehensive projects that showcase advanced
+                development skills, complex problem-solving, and
+                enterprise-level solutions.
               </p>
             </motion.div>
 
@@ -274,7 +282,62 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
             >
-              {featuredProjects.map((project, index) => (
+              {majorProjects.map((project, index) => (
+                <motion.div
+                  key={project._id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group"
+                >
+                  <ProjectCard
+                    project={project}
+                    onBuyNow={() => handleBuyNow(project)}
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Minor Projects */}
+        <section className="py-20 sm:py-24 bg-gradient-to-br from-gray-50 via-slate-50 to-gray-50 relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-50/30 to-transparent"></div>
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full text-sm font-medium mb-6 shadow-lg"
+              >
+                💡 Minor Projects
+              </motion.div>
+
+              <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent mb-6">
+                Quick Solutions
+              </h2>
+
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Explore focused projects that demonstrate specific skills,
+                creative implementations, and efficient solutions for targeted
+                problems.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+            >
+              {minorProjects.map((project, index) => (
                 <motion.div
                   key={project._id}
                   initial={{ opacity: 0, y: 30 }}

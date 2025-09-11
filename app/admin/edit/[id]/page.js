@@ -21,7 +21,7 @@ export default function EditProjectPage() {
     category: "",
     techStack: [],
     screenshots: [],
-    featured: false,
+    majorProject: false,
   });
   const [loading, setLoading] = useState(false);
   const [fetchLoading, setFetchLoading] = useState(true);
@@ -42,7 +42,7 @@ export default function EditProjectPage() {
             category: project.category || "",
             techStack: project.techStack || [],
             screenshots: project.screenshots || [],
-            featured: project.featured || false,
+            majorProject: project.majorProject || false,
           });
         } else {
           alert("Failed to fetch project");
@@ -325,13 +325,13 @@ export default function EditProjectPage() {
                   <label className="flex items-center">
                     <input
                       type="checkbox"
-                      name="featured"
-                      checked={formData.featured}
+                      name="majorProject"
+                      checked={formData.majorProject}
                       onChange={handleChange}
                       className="mr-2"
                     />
                     <span className="text-gray-700 text-sm font-bold">
-                      Featured Project
+                      Major Project
                     </span>
                   </label>
                 </div>

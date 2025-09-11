@@ -19,7 +19,7 @@ export default function NewProjectPage() {
     category: "",
     techStack: [],
     screenshots: [],
-    featured: false,
+    majorProject: false,
   });
   const [loading, setLoading] = useState(false);
 
@@ -271,13 +271,13 @@ export default function NewProjectPage() {
                   <label className="flex items-center">
                     <input
                       type="checkbox"
-                      name="featured"
-                      checked={formData.featured}
+                      name="majorProject"
+                      checked={formData.majorProject}
                       onChange={handleChange}
                       className="mr-2"
                     />
                     <span className="text-gray-700 text-sm font-bold">
-                      Featured Project
+                      Major Project
                     </span>
                   </label>
                 </div>

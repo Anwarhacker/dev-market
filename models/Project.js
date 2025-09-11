@@ -40,7 +40,7 @@ const ProjectSchema = new mongoose.Schema(
         type: String,
       },
     ],
-    featured: {
+    majorProject: {
       type: Boolean,
       default: false,
     },

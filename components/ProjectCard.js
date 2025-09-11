@@ -56,9 +56,20 @@ export default function ProjectCard({ project, onBuyNow }) {
               ₹{project.price}
             </span>
           </div>
-          <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-            {project.category}
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+              {project.category}
+            </span>
+            <span
+              className={`text-xs px-2 py-1 rounded-full font-medium ${
+                project.majorProject
+                  ? "bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs px-2 py-1 rounded-full font-medium shadow-lg"
+                  : "bg-gradient-to-r from-blue-400 to-violet-500 text-white text-xs px-2 py-1 rounded-full font-medium shadow-lg"
+              }`}
+            >
+              {project.majorProject ? "Major-project" : "Mini-project"}
+            </span>
+          </div>
         </div>
 
         {/* Action Buttons */}

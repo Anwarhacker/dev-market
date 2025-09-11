@@ -15,6 +15,7 @@ export default function ProjectsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedTech, setSelectedTech] = useState("");
+  const [selectedProjectType, setSelectedProjectType] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [selectedProject, setSelectedProject] = useState(null);
@@ -32,6 +33,7 @@ export default function ProjectsPage() {
     searchTerm,
     selectedCategory,
     selectedTech,
+    selectedProjectType,
     minPrice,
     maxPrice,
   ]);
@@ -70,6 +72,14 @@ export default function ProjectsPage() {
       filtered = filtered.filter((project) =>
         project.techStack.includes(selectedTech)
       );
+    }
+
+    if (selectedProjectType) {
+      if (selectedProjectType === "major") {
+        filtered = filtered.filter((project) => project.majorProject === true);
+      } else if (selectedProjectType === "minor") {
+        filtered = filtered.filter((project) => project.majorProject === false);
+      }
     }
 
     if (minPrice) {
@@ -150,7 +160,7 @@ export default function ProjectsPage() {
                       exit={{ height: 0, opacity: 0 }}
                       className="pt-4 border-t border-gray-200"
                     >
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                         <select
                           value={selectedCategory}
                           onChange={(e) => setSelectedCategory(e.target.value)}
@@ -175,6 +185,18 @@ export default function ProjectsPage() {
                               {tech}
                             </option>
                           ))}
+                        </select>
+
+                        <select
+                          value={selectedProjectType}
+                          onChange={(e) =>
+                            setSelectedProjectType(e.target.value)
+                          }
+                          className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        >
+                          <option value="">All Project Types</option>
+                          <option value="major">Major Projects</option>
+                          <option value="minor">Minor Projects</option>
                         </select>
 
                         <input
