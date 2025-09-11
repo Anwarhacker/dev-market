@@ -21,7 +21,7 @@ export default function ProjectCard({ project, onBuyNow }) {
         </div>
       )}
 
-      <div className="relative p-6">
+      <div className="relative p-6 mt-6">
         {/* Project Title */}
         <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors duration-300">
           {project.title}
