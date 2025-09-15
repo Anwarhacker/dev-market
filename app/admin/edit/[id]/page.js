@@ -26,6 +26,7 @@ export default function EditProjectPage() {
   });
   const [loading, setLoading] = useState(false);
   const [fetchLoading, setFetchLoading] = useState(true);
+  const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -128,6 +129,36 @@ export default function EditProjectPage() {
       ...prev,
       demoImages: prev.demoImages.filter((_, i) => i !== index),
     }));
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleDragEnter = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+
+    const files = Array.from(e.dataTransfer.files);
+    const imageFiles = files.filter((file) => file.type.startsWith("image/"));
+
+    if (imageFiles.length > 0) {
+      handleImageUpload({ target: { files: imageFiles } });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -364,16 +395,46 @@ export default function EditProjectPage() {
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     Demo Images
                   </label>
-                  <input
-                    type="file"
-                    multiple
-                    accept="image/*"
-                    onChange={handleImageUpload}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
-                  <p className="text-sm text-gray-500 mt-1">
-                    Upload multiple demo images (optional)
-                  </p>
+                  <div
+                    className={`relative border-2 border-dashed rounded-lg p-6 text-center transition-colors ${
+                      isDragging
+                        ? "border-blue-500 bg-blue-50"
+                        : "border-gray-300 hover:border-gray-400"
+                    }`}
+                    onDragOver={handleDragOver}
+                    onDragEnter={handleDragEnter}
+                    onDragLeave={handleDragLeave}
+                    onDrop={handleDrop}
+                  >
+                    <input
+                      type="file"
+                      multiple
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    />
+                    <div className="space-y-2">
+                      <div className="text-4xl text-gray-400">
+                        {isDragging ? "📁" : "📸"}
+                      </div>
+                      <div>
+                        <p className="text-lg font-medium text-gray-700">
+                          {isDragging
+                            ? "Drop images here"
+                            : "Drag & drop images here"}
+                        </p>
+                        <p className="text-sm text-gray-500">
+                          or{" "}
+                          <span className="text-blue-500 underline">
+                            browse files
+                          </span>
+                        </p>
+                      </div>
+                      <p className="text-xs text-gray-400">
+                        Supports: JPG, PNG, GIF, WebP (Max 10MB each)
+                      </p>
+                    </div>
+                  </div>
                   {formData.demoImages.length > 0 && (
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
                       {formData.demoImages.map((image, index) => (
