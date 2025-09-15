@@ -76,24 +76,42 @@ export default function ProjectCard({ project, onBuyNow }) {
         <div className="space-y-3">
           {/* Links Row */}
           <div className="flex gap-2">
-            <a
-              href={project.demoLink}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => {
+                if (project.demoLink) {
+                  window.open(
+                    project.demoLink,
+                    "_blank",
+                    "noopener,noreferrer"
+                  );
+                } else {
+                  alert(
+                    "This project is not available for online demo. Please run it locally to try it out."
+                  );
+                }
+              }}
               className="flex-1 flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 text-sm font-medium shadow-md hover:shadow-lg"
             >
               <ExternalLink size={14} className="mr-1" />
               Demo
-            </a>
-            <a
-              href={project.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
+            </button>
+            <button
+              onClick={() => {
+                if (project.githubLink) {
+                  window.open(
+                    project.githubLink,
+                    "_blank",
+                    "noopener,noreferrer"
+                  );
+                } else {
+                  alert("For Git repository, contact the developer.");
+                }
+              }}
               className="flex-1 flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-900 text-white px-4 py-2 rounded-lg hover:from-gray-900 hover:to-black transition-all duration-300 text-sm font-medium shadow-md hover:shadow-lg"
             >
               <Github size={14} className="mr-1" />
               Code
-            </a>
+            </button>
           </div>
 
           {/* Main Actions */}

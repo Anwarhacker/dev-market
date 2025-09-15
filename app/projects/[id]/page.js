@@ -7,6 +7,7 @@ import Link from "next/link";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 import Modal from "../../../components/Modal";
+import ImageModal from "../../../components/ImageModal";
 import {
   ExternalLink,
   Github,
@@ -21,6 +22,8 @@ export default function ProjectDetailsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     if (id) {
@@ -35,6 +38,10 @@ export default function ProjectDetailsPage() {
         throw new Error("Project not found");
       }
       const data = await response.json();
+      console.log("Project data:", data);
+      console.log("Demo images:", data.demoImages);
+      console.log("Demo images type:", typeof data.demoImages);
+      console.log("Demo images length:", data.demoImages?.length);
       setProject(data);
     } catch (error) {
       console.error("Error fetching project:", error);
@@ -46,6 +53,30 @@ export default function ProjectDetailsPage() {
 
   const handleBuyNow = () => {
     setIsModalOpen(true);
+  };
+
+  const openImageModal = (index) => {
+    setCurrentImageIndex(index);
+    setIsImageModalOpen(true);
+  };
+
+  const closeImageModal = () => {
+    setIsImageModalOpen(false);
+  };
+
+  const nextImage = () => {
+    if (
+      project?.demoImages &&
+      currentImageIndex < project.demoImages.length - 1
+    ) {
+      setCurrentImageIndex(currentImageIndex + 1);
+    }
+  };
+
+  const prevImage = () => {
+    if (currentImageIndex > 0) {
+      setCurrentImageIndex(currentImageIndex - 1);
+    }
   };
 
   if (loading) {
@@ -140,24 +171,42 @@ export default function ProjectDetailsPage() {
                       </span>
                     </div>
                     <div className="space-y-2">
-                      <a
-                        href={project.demoLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <button
+                        onClick={() => {
+                          if (project.demoLink) {
+                            window.open(
+                              project.demoLink,
+                              "_blank",
+                              "noopener,noreferrer"
+                            );
+                          } else {
+                            alert(
+                              "This project is not available for online demo. Please run it locally to try it out."
+                            );
+                          }
+                        }}
                         className="w-full flex items-center justify-center bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
                       >
                         <ExternalLink className="h-4 w-4 mr-2" />
                         View Demo
-                      </a>
-                      <a
-                        href={project.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      </button>
+                      <button
+                        onClick={() => {
+                          if (project.githubLink) {
+                            window.open(
+                              project.githubLink,
+                              "_blank",
+                              "noopener,noreferrer"
+                            );
+                          } else {
+                            alert("For Git repository, contact the developer.");
+                          }
+                        }}
                         className="w-full flex items-center justify-center bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 transition-colors"
                       >
                         <Github className="h-4 w-4 mr-2" />
                         View Source
-                      </a>
+                      </button>
                       <button
                         onClick={handleBuyNow}
                         className="w-full bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors"
@@ -169,6 +218,60 @@ export default function ProjectDetailsPage() {
                 </div>
               </div>
             </div>
+
+            {/* Demo Images */}
+            {project.demoImages &&
+              Array.isArray(project.demoImages) &&
+              project.demoImages.length > 0 &&
+              (() => {
+                console.log("Rendering demo images:", project.demoImages);
+                return (
+                  <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 lg:p-8 mb-8">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-6">
+                      Demo Images
+                    </h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {project.demoImages
+                        .map((image, index) => {
+                          // Handle both old string format and new object format
+                          const imageUrl =
+                            typeof image === "string" ? image : image?.url;
+                          const imageAlt =
+                            typeof image === "string"
+                              ? `Demo Image ${index + 1}`
+                              : image?.alt || `Demo Image ${index + 1}`;
+
+                          return imageUrl ? (
+                            <div
+                              key={index}
+                              className="aspect-video bg-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+                              onClick={() => openImageModal(index)}
+                            >
+                              <img
+                                src={imageUrl}
+                                alt={imageAlt}
+                                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                onError={(e) => {
+                                  console.error(
+                                    "Image failed to load:",
+                                    imageUrl
+                                  );
+                                  e.target.style.display = "none";
+                                }}
+                              />
+                            </div>
+                          ) : null;
+                        })
+                        .filter(Boolean)}
+                    </div>
+                    {project.demoImages.length === 0 && (
+                      <p className="text-gray-500 text-center">
+                        No demo images available
+                      </p>
+                    )}
+                  </div>
+                );
+              })()}
 
             {/* Setup Procedure */}
             <div className="bg-white rounded-lg shadow-md p-8 mb-8">
@@ -212,6 +315,14 @@ export default function ProjectDetailsPage() {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         project={project}
+      />
+      <ImageModal
+        images={project?.demoImages || []}
+        currentIndex={currentImageIndex}
+        isOpen={isImageModalOpen}
+        onClose={closeImageModal}
+        onNext={nextImage}
+        onPrev={prevImage}
       />
     </div>
   );

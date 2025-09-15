@@ -4,11 +4,18 @@ import Project from "@/models/Project.js";
 export async function GET(request, { params }) {
   try {
     await connectToDatabase();
-    const { id } = params;
+    const { id } = await params;
     const project = await Project.findById(id);
     if (!project) {
       return Response.json({ error: "Project not found" }, { status: 404 });
     }
+
+    // Debug logging
+    console.log("API: Project found:", project._id);
+    console.log("API: Demo images field:", project.demoImages);
+    console.log("API: Demo images type:", typeof project.demoImages);
+    console.log("API: Demo images length:", project.demoImages?.length);
+
     return Response.json(project);
   } catch (error) {
     console.error("Error fetching project:", error);
@@ -19,7 +26,7 @@ export async function GET(request, { params }) {
 export async function PUT(request, { params }) {
   try {
     await connectToDatabase();
-    const { id } = params;
+    const { id } = await params;
     const body = await request.json();
     const updatedProject = await Project.findByIdAndUpdate(id, body, {
       new: true,
@@ -40,7 +47,7 @@ export async function PUT(request, { params }) {
 export async function DELETE(request, { params }) {
   try {
     await connectToDatabase();
-    const { id } = params;
+    const { id } = await params;
     const deletedProject = await Project.findByIdAndDelete(id);
     if (!deletedProject) {
       return Response.json({ error: "Project not found" }, { status: 404 });

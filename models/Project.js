@@ -20,11 +20,11 @@ const ProjectSchema = new mongoose.Schema(
     },
     demoLink: {
       type: String,
-      required: true,
+      required: false,
     },
     githubLink: {
       type: String,
-      required: true,
+      required: false,
     },
     category: {
       type: String,
@@ -38,6 +38,12 @@ const ProjectSchema = new mongoose.Schema(
     screenshots: [
       {
         type: String,
+      },
+    ],
+    demoImages: [
+      {
+        public_id: { type: String },
+        url: { type: String },
       },
     ],
     majorProject: {

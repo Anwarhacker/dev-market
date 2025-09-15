@@ -21,6 +21,7 @@ export default function EditProjectPage() {
     category: "",
     techStack: [],
     screenshots: [],
+    demoImages: [],
     majorProject: false,
   });
   const [loading, setLoading] = useState(false);
@@ -42,6 +43,7 @@ export default function EditProjectPage() {
             category: project.category || "",
             techStack: project.techStack || [],
             screenshots: project.screenshots || [],
+            demoImages: project.demoImages || [],
             majorProject: project.majorProject || false,
           });
         } else {
@@ -86,6 +88,45 @@ export default function EditProjectPage() {
     setFormData((prev) => ({
       ...prev,
       techStack: prev.techStack.filter((t) => t !== tech),
+    }));
+  };
+
+  const handleImageUpload = async (e) => {
+    const files = Array.from(e.target.files);
+    const uploadedImages = [];
+
+    for (const file of files) {
+      const formDataUpload = new FormData();
+      formDataUpload.append("file", file);
+
+      try {
+        const response = await fetch("/api/upload", {
+          method: "POST",
+          body: formDataUpload,
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          uploadedImages.push(result);
+        }
+      } catch (error) {
+        console.error("Error uploading image:", error);
+        alert("Failed to upload image");
+      }
+    }
+
+    setFormData((prev) => ({
+      ...prev,
+      demoImages: [...prev.demoImages, ...uploadedImages],
+    }));
+
+    e.target.value = "";
+  };
+
+  const removeImage = (index) => {
+    setFormData((prev) => ({
+      ...prev,
+      demoImages: prev.demoImages.filter((_, i) => i !== index),
     }));
   };
 
@@ -256,7 +297,7 @@ export default function EditProjectPage() {
                     className="block text-gray-700 text-sm font-bold mb-2"
                     htmlFor="demoLink"
                   >
-                    Demo Link *
+                    Demo Link
                   </label>
                   <input
                     type="url"
@@ -265,7 +306,6 @@ export default function EditProjectPage() {
                     value={formData.demoLink}
                     onChange={handleChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    required
                   />
                 </div>
 
@@ -274,7 +314,7 @@ export default function EditProjectPage() {
                     className="block text-gray-700 text-sm font-bold mb-2"
                     htmlFor="githubLink"
                   >
-                    GitHub Link *
+                    GitHub Link
                   </label>
                   <input
                     type="url"
@@ -283,7 +323,6 @@ export default function EditProjectPage() {
                     value={formData.githubLink}
                     onChange={handleChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    required
                   />
                 </div>
 
@@ -319,6 +358,42 @@ export default function EditProjectPage() {
                       </span>
                     ))}
                   </div>
+                </div>
+
+                <div className="md:col-span-2">
+                  <label className="block text-gray-700 text-sm font-bold mb-2">
+                    Demo Images
+                  </label>
+                  <input
+                    type="file"
+                    multiple
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                  <p className="text-sm text-gray-500 mt-1">
+                    Upload multiple demo images (optional)
+                  </p>
+                  {formData.demoImages.length > 0 && (
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                      {formData.demoImages.map((image, index) => (
+                        <div key={index} className="relative">
+                          <img
+                            src={image.url}
+                            alt={`Demo ${index + 1}`}
+                            className="w-full h-24 object-cover rounded-lg"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => removeImage(index)}
+                            className="absolute top-1 right-1 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm hover:bg-red-600"
+                          >
+                            ×
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 <div>
