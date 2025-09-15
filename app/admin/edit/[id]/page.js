@@ -190,7 +190,7 @@ export default function EditProjectPage() {
 
   if (fetchLoading) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 text-black">
         <Navbar />
         <div className="pt-16 flex items-center justify-center min-h-[80vh]">
           <div className="text-center">
@@ -204,7 +204,7 @@ export default function EditProjectPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 text-black">
       <Navbar />
       <main className="pt-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
