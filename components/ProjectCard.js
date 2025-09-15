@@ -85,8 +85,9 @@ export default function ProjectCard({ project, onBuyNow }) {
                     "noopener,noreferrer"
                   );
                 } else {
-                  alert(
-                    "This project is not available for online demo. Please run it locally to try it out."
+                  window.showToast(
+                    "This project is not available for online demo. Please run it locally to try it out.",
+                    "warning"
                   );
                 }
               }}
@@ -104,7 +105,10 @@ export default function ProjectCard({ project, onBuyNow }) {
                     "noopener,noreferrer"
                   );
                 } else {
-                  alert("For Git repository, contact the developer.");
+                  window.showToast(
+                    "For Git repository, contact the developer.",
+                    "info"
+                  );
                 }
               }}
               className="flex-1 flex items-center justify-center bg-gradient-to-r from-gray-800 to-gray-900 text-white px-4 py-2 rounded-lg hover:from-gray-900 hover:to-black transition-all duration-300 text-sm font-medium shadow-md hover:shadow-lg"

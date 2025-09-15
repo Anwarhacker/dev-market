@@ -180,8 +180,9 @@ export default function ProjectDetailsPage() {
                               "noopener,noreferrer"
                             );
                           } else {
-                            alert(
-                              "This project is not available for online demo. Please run it locally to try it out."
+                            window.showToast(
+                              "This project is not available for online demo. Please run it locally to try it out.",
+                              "warning"
                             );
                           }
                         }}
@@ -199,7 +200,10 @@ export default function ProjectDetailsPage() {
                               "noopener,noreferrer"
                             );
                           } else {
-                            alert("For Git repository, contact the developer.");
+                            window.showToast(
+                              "For Git repository, contact the developer.",
+                              "info"
+                            );
                           }
                         }}
                         className="w-full flex items-center justify-center bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 transition-colors"
