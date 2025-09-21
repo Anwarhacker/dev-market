@@ -230,7 +230,7 @@ export default function ProjectDetailsPage() {
               (() => {
                 console.log("Rendering demo images:", project.demoImages);
                 return (
-                  <div className="bg-white rounded-lg border border-black shadow-md p-4 sm:p-6 lg:p-8 mb-8">
+                  <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 lg:p-8 mb-8">
                     <h2 className="text-2xl font-bold text-gray-800 mb-6">
                       Demo Images
                     </h2>
