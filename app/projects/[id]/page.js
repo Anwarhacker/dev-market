@@ -201,7 +201,7 @@ export default function ProjectDetailsPage() {
                             );
                           } else {
                             window.showToast(
-                              "For Git repository, contact the developer.",
+                              "For Source Code, contact the developer.",
                               "info"
                             );
                           }
@@ -230,7 +230,7 @@ export default function ProjectDetailsPage() {
               (() => {
                 console.log("Rendering demo images:", project.demoImages);
                 return (
-                  <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 lg:p-8 mb-8">
+                  <div className="bg-white rounded-lg border border-black shadow-md p-4 sm:p-6 lg:p-8 mb-8">
                     <h2 className="text-2xl font-bold text-gray-800 mb-6">
                       Demo Images
                     </h2>
@@ -248,7 +248,7 @@ export default function ProjectDetailsPage() {
                           return imageUrl ? (
                             <div
                               key={index}
-                              className="aspect-video bg-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+                              className="aspect-video bg-gray-200 rounded-lg border border-black overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer"
                               onClick={() => openImageModal(index)}
                             >
                               <img
