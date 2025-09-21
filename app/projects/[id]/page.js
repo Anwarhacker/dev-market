@@ -161,7 +161,7 @@ export default function ProjectDetailsPage() {
                     <div className="flex items-center mb-4">
                       <IndianRupee className="h-6 w-6 text-green-600 mr-2" />
                       <span className="text-2xl sm:text-3xl font-bold text-green-600">
-                        ₹{project.price}
+                        {project.price}
                       </span>
                     </div>
                     <div className="flex items-center mb-4">
