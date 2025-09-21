@@ -106,7 +106,7 @@ export default function ProjectCard({ project, onBuyNow }) {
                   );
                 } else {
                   window.showToast(
-                    "For Git repository, contact the developer.",
+                    "For Source Code, contact the developer.",
                     "info"
                   );
                 }
