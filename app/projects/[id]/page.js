@@ -234,6 +234,10 @@ export default function ProjectDetailsPage() {
                     <h2 className="text-2xl font-bold text-gray-800 mb-6">
                       Demo Images
                     </h2>
+                    <p className="text-gray-500 text-center mb-4">
+                      click to preview{" "}
+                    </p>
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                       {project.demoImages
                         .map((image, index) => {
@@ -248,13 +252,13 @@ export default function ProjectDetailsPage() {
                           return imageUrl ? (
                             <div
                               key={index}
-                              className="aspect-video bg-gray-200 rounded-lg border border-black overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+                              className="aspect-video bg-gray-200 rounded-lg border border-blue-300  overflow-hidden shadow-lg transition-shadow duration-300 cursor-pointer p-2"
                               onClick={() => openImageModal(index)}
                             >
                               <img
                                 src={imageUrl}
                                 alt={imageAlt}
-                                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                className="w-full h-full object-cover hover:scale-98 transition-transform duration-300 rounded-lg"
                                 onError={(e) => {
                                   console.error(
                                     "Image failed to load:",

@@ -83,14 +83,20 @@ export default function Home() {
                   href="/projects"
                   className="group relative bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:-translate-y-1"
                 >
-                  <span className="relative z-10">Browse Projects</span>
+                  <span className="relative z-10">📁 Browse Projects</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </Link>
                 <Link
                   href="/admin"
                   className="group relative border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-slate-900 transition-all duration-300 backdrop-blur-sm"
                 >
-                  Admin Panel
+                  ⚙️ Admin Panel
+                </Link>
+                <Link
+                  href="/blog"
+                  className="group relative border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-slate-900 transition-all duration-300 backdrop-blur-sm"
+                >
+                  📚 Documentation
                 </Link>
               </motion.div>
 

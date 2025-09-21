@@ -76,7 +76,7 @@ export default function AdminPage() {
     return (
       <div className="min-h-screen bg-gray-50">
         <Navbar />
-        <div className="pt-16 flex items-center justify-center min-h-[80vh] px-4">
+        <div className="pt-16 flex items-center justify-center min-h-[80vh] px-4 my-5">
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -87,8 +87,8 @@ export default function AdminPage() {
             <div className="bg-gradient-to-r from-purple-600 to-blue-600 p-8 text-white text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20"></div>
               <div className="absolute top-4 right-4">
-                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center">
-                  <Lock className="h-8 w-8" />
+                <div className="w-10 h-10 mt-5 right-6 bg-white/10 rounded-full flex items-center justify-center">
+                  <Lock className="h-5 w-5" />
                 </div>
               </div>
               <div className="relative z-10">
@@ -100,7 +100,7 @@ export default function AdminPage() {
             </div>
 
             {/* Form */}
-            <div className="p-8">
+            <div className="p-8 text-black ">
               <form onSubmit={handleLogin} className="space-y-6">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
