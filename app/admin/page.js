@@ -12,6 +12,7 @@ export default function AdminPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [projects, setProjects] = useState([]);
+  const [stats, setStats] = useState({ total: 0, major: 0, minor: 0 });
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -49,6 +50,11 @@ export default function AdminPage() {
       const response = await fetch("/api/projects");
       const data = await response.json();
       setProjects(data);
+      setStats({
+        total: data.length,
+        major: data.filter((p) => p.majorProject).length,
+        minor: data.filter((p) => !p.majorProject).length,
+      });
     } catch (error) {
       console.error("Error fetching projects:", error);
     }
@@ -255,6 +261,53 @@ export default function AdminPage() {
                 </button>
               </div>
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8"
+            >
+              <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100">
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                    <span className="text-2xl">📊</span>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">Total Projects</p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      {stats.total}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100">
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
+                    <span className="text-2xl">🚀</span>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">Major Projects</p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      {stats.major}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100">
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                    <span className="text-2xl">💡</span>
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600">Minor Projects</p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      {stats.minor}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
 
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="px-4 sm:px-6 py-4 border-b border-gray-200">
