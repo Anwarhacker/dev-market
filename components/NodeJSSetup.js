@@ -1,7 +1,34 @@
 import { motion } from "framer-motion";
 import { Download, Info, Code } from "lucide-react";
+import { useState } from "react";
+import ImageModal from "./ImageModal";
 
 export default function NodeJSSetup() {
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [modalImages, setModalImages] = useState([]);
+
+  const openImageModal = (images, index) => {
+    setModalImages(images);
+    setCurrentImageIndex(index);
+    setIsImageModalOpen(true);
+  };
+
+  const closeImageModal = () => {
+    setIsImageModalOpen(false);
+  };
+
+  const nextImage = () => {
+    if (currentImageIndex < modalImages.length - 1) {
+      setCurrentImageIndex(currentImageIndex + 1);
+    }
+  };
+
+  const prevImage = () => {
+    if (currentImageIndex > 0) {
+      setCurrentImageIndex(currentImageIndex - 1);
+    }
+  };
   return (
     <motion.section
       id="nodejs"
@@ -50,9 +77,25 @@ export default function NodeJSSetup() {
                 Step 1: Visit Node.js Official Website
               </h4>
               <img
-                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/22nd_nodejs1.png"
+                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095541/node_1_uun86d.png"
                 alt="Node.js Official Website"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095541/node_1_uun86d.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759125079/nodejs_22_sgg78m.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_3_e4d1uj.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_4_zlxjjf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_5_pebfwz.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_6_rekkbo.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_7_cfsw0g.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_8_anlgm0.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_10_ecgnv8.png",
+                    ],
+                    0
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Navigate to{" "}
@@ -75,9 +118,25 @@ export default function NodeJSSetup() {
                 Step 2: Download LTS Version
               </h4>
               <img
-                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/23rd_nodejs2.png"
+                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759125079/nodejs_22_sgg78m.png"
                 alt="Node.js Download Page"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095541/node_1_uun86d.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759125079/nodejs_22_sgg78m.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_3_e4d1uj.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_4_zlxjjf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_5_pebfwz.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_6_rekkbo.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_7_cfsw0g.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_8_anlgm0.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_10_ecgnv8.png",
+                    ],
+                    1
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Click on the "LTS" (Long Term Support) version download button.
@@ -92,12 +151,28 @@ export default function NodeJSSetup() {
                 Step 3: Run the Installer
               </h4>
               <img
-                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/24th_nodejs3.png"
+                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_3_e4d1uj.png"
                 alt="Node.js Installation Wizard"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095541/node_1_uun86d.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759125079/nodejs_22_sgg78m.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_3_e4d1uj.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_4_zlxjjf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_5_pebfwz.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_6_rekkbo.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_7_cfsw0g.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_8_anlgm0.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_10_ecgnv8.png",
+                    ],
+                    2
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
-                Locate the downloaded installer file and run it. The Node.js
+                Double click the downloded installer file and run it.The Node.js
                 setup wizard will guide you through the installation process.
                 Click "Next" to proceed with the default settings, which are
                 suitable for most users.
@@ -108,15 +183,32 @@ export default function NodeJSSetup() {
               <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
                 Step 4: Accept License Agreement
               </h4>
-              <img
+              {/* <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/25th_nodejs4.png"
                 alt="License Agreement"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
-              />
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/22nd_nodejs1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/23rd_nodejs2.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/24th_nodejs3.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/25th_nodejs4.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/26th_nodejs5.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/27th_nodejs6.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/28th_nodejs7.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/29th_nodejs8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/30th_nodejs9.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/31st_nodejs10.png",
+                    ],
+                    3
+                  )
+                }
+              /> */}
               <p className="text-gray-700 text-sm sm:text-base">
-                Read and accept the End-User License Agreement. This is a
-                standard open-source license that allows you to use Node.js
-                freely for personal and commercial projects.
+                ✅ Click "I Agree Read and accept the End-User License
+                Agreement. This is a standard open-source license that allows
+                you to use Node.js freely for personal and commercial projects.
               </p>
             </div>
 
@@ -125,9 +217,25 @@ export default function NodeJSSetup() {
                 Step 5: Choose Installation Location
               </h4>
               <img
-                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/26th_nodejs5.png"
+                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_4_zlxjjf.png"
                 alt="Installation Location"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095541/node_1_uun86d.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759125079/nodejs_22_sgg78m.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_3_e4d1uj.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_4_zlxjjf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_5_pebfwz.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_6_rekkbo.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_7_cfsw0g.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_8_anlgm0.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_10_ecgnv8.png",
+                    ],
+                    3
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Choose the destination folder where Node.js will be installed.
@@ -142,15 +250,31 @@ export default function NodeJSSetup() {
                 Step 6: Select Components to Install
               </h4>
               <img
-                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/27th_nodejs6.png"
+                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_5_pebfwz.png"
                 alt="Component Selection"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095541/node_1_uun86d.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759125079/nodejs_22_sgg78m.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_3_e4d1uj.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_4_zlxjjf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_5_pebfwz.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_6_rekkbo.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_7_cfsw0g.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_8_anlgm0.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_10_ecgnv8.png",
+                    ],
+                    4
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Select the components you want to install. It's recommended to
                 keep all default options selected, including:
               </p>
-              <ul className="list-disc list-inside ml-4 mt-2 space-y-1 text-sm sm:text-base">
+              <ul className="list-disc list-inside ml-4 mt-2 space-y-1 text-sm sm:text-base text-black">
                 <li>Node.js runtime</li>
                 <li>npm package manager</li>
                 <li>Online documentation shortcuts</li>
@@ -165,9 +289,25 @@ export default function NodeJSSetup() {
                 Step 7: Complete Installation
               </h4>
               <img
-                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/28th_nodejs7.png"
+                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_6_rekkbo.png"
                 alt="Installation Complete"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095541/node_1_uun86d.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759125079/nodejs_22_sgg78m.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_3_e4d1uj.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_4_zlxjjf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_5_pebfwz.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_6_rekkbo.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_7_cfsw0g.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_8_anlgm0.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_10_ecgnv8.png",
+                    ],
+                    5
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 The installation process will now begin. This may take a few
@@ -178,12 +318,81 @@ export default function NodeJSSetup() {
 
             <div>
               <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
-                Step 8: Verify Installation
+                Step 8: Setup environmental veriables
               </h4>
               <img
-                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/29th_nodejs8.png"
+                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_7_cfsw0g.png"
                 alt="Command Prompt Verification"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095541/node_1_uun86d.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759125079/nodejs_22_sgg78m.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_3_e4d1uj.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_4_zlxjjf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_5_pebfwz.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_6_rekkbo.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_7_cfsw0g.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_8_anlgm0.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_10_ecgnv8.png",
+                    ],
+                    6
+                  )
+                }
+              />
+              <img
+                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_8_anlgm0.png"
+                alt="Command Prompt Verification"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095541/node_1_uun86d.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759125079/nodejs_22_sgg78m.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_3_e4d1uj.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_4_zlxjjf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_5_pebfwz.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_6_rekkbo.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_7_cfsw0g.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_8_anlgm0.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_10_ecgnv8.png",
+                    ],
+                    7
+                  )
+                }
+              />
+              <p className="text-gray-700 text-sm sm:text-base">
+                Open the menu search and search environmental variables and
+                system variables add the "PATH" by double clicking "path" in
+                system variables and add the path where nodejs is installed
+                "C:\Program Files\nodejs\". Click OK to save and exit.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
+                Step 9: Verify Installation
+              </h4>
+              <img
+                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_10_ecgnv8.png"
+                alt="Command Prompt Verification"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095541/node_1_uun86d.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759125079/nodejs_22_sgg78m.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_3_e4d1uj.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_4_zlxjjf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_5_pebfwz.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_6_rekkbo.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095539/node_7_cfsw0g.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_8_anlgm0.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759095540/node_10_ecgnv8.png",
+                    ],
+                    8
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Open Command Prompt or PowerShell and run the following commands
@@ -199,13 +408,9 @@ export default function NodeJSSetup() {
 
             <div>
               <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
-                Step 9: Test Node.js Functionality
+                Step 10: Test Node.js Functionality
               </h4>
-              <img
-                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/30th_nodejs9.png"
-                alt="Node.js Test Execution"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
-              />
+
               <p className="text-gray-700 text-sm sm:text-base">
                 Test that Node.js is working correctly by running a simple
                 JavaScript command:
@@ -227,13 +432,9 @@ export default function NodeJSSetup() {
 
             <div>
               <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
-                Step 10: Install Your First Package
+                Step 11: Install Your First Package
               </h4>
-              <img
-                src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/31st_nodejs10.png"
-                alt="NPM Package Installation"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
-              />
+
               <p className="text-gray-700 text-sm sm:text-base">
                 Test npm by installing a popular package. Let's install
                 "lodash", a utility library:
@@ -393,6 +594,15 @@ export default function NodeJSSetup() {
           </div>
         </div>
       </div>
+
+      <ImageModal
+        images={modalImages}
+        currentIndex={currentImageIndex}
+        isOpen={isImageModalOpen}
+        onClose={closeImageModal}
+        onNext={nextImage}
+        onPrev={prevImage}
+      />
     </motion.section>
   );
 }

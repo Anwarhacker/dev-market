@@ -1,7 +1,34 @@
 import { motion } from "framer-motion";
 import { Info } from "lucide-react";
+import { useState } from "react";
+import ImageModal from "./ImageModal";
 
 export default function CloudinarySetup() {
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [modalImages, setModalImages] = useState([]);
+
+  const openImageModal = (images, index) => {
+    setModalImages(images);
+    setCurrentImageIndex(index);
+    setIsImageModalOpen(true);
+  };
+
+  const closeImageModal = () => {
+    setIsImageModalOpen(false);
+  };
+
+  const nextImage = () => {
+    if (currentImageIndex < modalImages.length - 1) {
+      setCurrentImageIndex(currentImageIndex + 1);
+    }
+  };
+
+  const prevImage = () => {
+    if (currentImageIndex > 0) {
+      setCurrentImageIndex(currentImageIndex - 1);
+    }
+  };
   return (
     <motion.section
       id="cloudinary"
@@ -53,12 +80,36 @@ export default function CloudinarySetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091052/Screenshot_2025-09-21_203132_bmwb7r.png"
                 alt="Cloudinary Sign Up Page"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091052/Screenshot_2025-09-21_203132_bmwb7r.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091093/Screenshot_2025-09-21_175636_k4x9ik.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091020/cloudinary_3_i8rql9.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091020/cloudinary_4_bp5lcf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091117/Screenshot_2025-09-21_203350_e9updh.png",
+                    ],
+                    0
+                  )
+                }
               />
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091093/Screenshot_2025-09-21_175636_k4x9ik.png"
                 alt="Cloudinary Sign Up Page"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091052/Screenshot_2025-09-21_203132_bmwb7r.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091093/Screenshot_2025-09-21_175636_k4x9ik.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091020/cloudinary_3_i8rql9.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091020/cloudinary_4_bp5lcf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091117/Screenshot_2025-09-21_203350_e9updh.png",
+                    ],
+                    1
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Visit{" "}
@@ -83,7 +134,19 @@ export default function CloudinarySetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091020/cloudinary_3_i8rql9.png"
                 alt="Cloudinary Dashboard"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091052/Screenshot_2025-09-21_203132_bmwb7r.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091093/Screenshot_2025-09-21_175636_k4x9ik.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091020/cloudinary_3_i8rql9.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091020/cloudinary_4_bp5lcf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091117/Screenshot_2025-09-21_203350_e9updh.png",
+                    ],
+                    2
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 After logging in, navigate to the Dashboard and Click to Go to
@@ -99,7 +162,19 @@ export default function CloudinarySetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091020/cloudinary_4_bp5lcf.png"
                 alt="SDK Installation"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091052/Screenshot_2025-09-21_203132_bmwb7r.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091093/Screenshot_2025-09-21_175636_k4x9ik.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091020/cloudinary_3_i8rql9.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091020/cloudinary_4_bp5lcf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091117/Screenshot_2025-09-21_203350_e9updh.png",
+                    ],
+                    3
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Here is the information you need to set up Cloudinary in your
@@ -113,7 +188,19 @@ export default function CloudinarySetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091117/Screenshot_2025-09-21_203350_e9updh.png"
                 alt="SDK Installation"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091052/Screenshot_2025-09-21_203132_bmwb7r.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091093/Screenshot_2025-09-21_175636_k4x9ik.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091020/cloudinary_3_i8rql9.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091020/cloudinary_4_bp5lcf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759091117/Screenshot_2025-09-21_203350_e9updh.png",
+                    ],
+                    4
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Click to ********************** to reveal your API secret. You
@@ -225,6 +312,15 @@ export default function CloudinarySetup() {
           </div>
         </div>
       </div>
+
+      <ImageModal
+        images={modalImages}
+        currentIndex={currentImageIndex}
+        isOpen={isImageModalOpen}
+        onClose={closeImageModal}
+        onNext={nextImage}
+        onPrev={prevImage}
+      />
     </motion.section>
   );
 }

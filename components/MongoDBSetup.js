@@ -1,7 +1,34 @@
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
+import { useState } from "react";
+import ImageModal from "./ImageModal";
 
 export default function MongoDBSetup() {
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [modalImages, setModalImages] = useState([]);
+
+  const openImageModal = (images, index) => {
+    setModalImages(images);
+    setCurrentImageIndex(index);
+    setIsImageModalOpen(true);
+  };
+
+  const closeImageModal = () => {
+    setIsImageModalOpen(false);
+  };
+
+  const nextImage = () => {
+    if (currentImageIndex < modalImages.length - 1) {
+      setCurrentImageIndex(currentImageIndex + 1);
+    }
+  };
+
+  const prevImage = () => {
+    if (currentImageIndex > 0) {
+      setCurrentImageIndex(currentImageIndex - 1);
+    }
+  };
   return (
     <motion.section
       id="mongodb"
@@ -51,7 +78,29 @@ export default function MongoDBSetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png"
                 alt="MongoDB Atlas Homepage"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png",
+                    ],
+                    0
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Navigate to{" "}
@@ -76,7 +125,29 @@ export default function MongoDBSetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png"
                 alt="Projects Section"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png",
+                    ],
+                    1
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 After logging in, locate the "Projects" section in the left
@@ -92,7 +163,29 @@ export default function MongoDBSetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png"
                 alt="New Project Creation"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png",
+                    ],
+                    2
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Click on "New Project" to create a fresh project. This will be
@@ -107,12 +200,56 @@ export default function MongoDBSetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png"
                 alt="Project Configuration"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png",
+                    ],
+                    3
+                  )
+                }
               />
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png"
                 alt="Project Configuration"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png",
+                    ],
+                    4
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Enter a project name and click to next and then your choice and
@@ -128,7 +265,29 @@ export default function MongoDBSetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png"
                 alt="Cluster Creation"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png",
+                    ],
+                    5
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Click the "+ Create" button to start building your database
@@ -143,7 +302,29 @@ export default function MongoDBSetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png"
                 alt="Plan Selection"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png",
+                    ],
+                    6
+                  )
+                }
               />
               <div className="text-gray-700 text-sm sm:text-base">
                 <p className="mb-2">Choose your cluster configuration:</p>
@@ -167,7 +348,29 @@ export default function MongoDBSetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png"
                 alt="Provider and Region Selection"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png",
+                    ],
+                    7
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Select your preferred cloud provider (AWS, Google Cloud, or
@@ -184,7 +387,29 @@ export default function MongoDBSetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png"
                 alt="Network Access Navigation"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png",
+                    ],
+                    8
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 A popup will appear with your connection string. Click on
@@ -199,7 +424,29 @@ export default function MongoDBSetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png"
                 alt="IP Address Configuration"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png",
+                    ],
+                    9
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 In the Network Access tab, click the "Add IP Address" button to
@@ -213,7 +460,29 @@ export default function MongoDBSetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png"
                 alt="Access Permission Setup"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png",
+                    ],
+                    10
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Click "Allow Access from Anywhere" and then click "Confirm" to
@@ -228,7 +497,29 @@ export default function MongoDBSetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png"
                 alt="Network Access Verification"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png",
+                    ],
+                    11
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 After confirmation, the IP access entry will show as "Active".
@@ -242,7 +533,29 @@ export default function MongoDBSetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png"
                 alt="Database User Creation"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png",
+                    ],
+                    12
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Enter a username and secure password for database access. Click
@@ -257,7 +570,29 @@ export default function MongoDBSetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png"
                 alt="Driver Selection"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png",
+                    ],
+                    13
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 In the connection popup, click on the driver selection dropdown.
@@ -272,7 +607,29 @@ export default function MongoDBSetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png"
                 alt="Connection String Copy"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png",
+                    ],
+                    14
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Copy the provided connection string. Replace the username and
@@ -288,7 +645,29 @@ export default function MongoDBSetup() {
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png"
                 alt="Connection Testing"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300"
+                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                onClick={() =>
+                  openImageModal(
+                    [
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/2nd_wdx9bf.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/3rd_vqt5sd.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/4th_hycxlu.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/5th_ov1sev.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/6th_tseuq1.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/7th_imkj8h.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/8th_lonnxx.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/9th_dhkqw8.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/10th_pufnlb.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086338/11th_nougsg.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/12th_vqpkpl.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/13th_zbbnia.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086339/14th_dtey7z.png",
+                      "https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086340/15th_wqk1yy.png",
+                    ],
+                    14
+                  )
+                }
               />
               <p className="text-gray-700 text-sm sm:text-base">
                 Click Done and Use the connection string in your application
@@ -316,6 +695,15 @@ export default function MongoDBSetup() {
           </div>
         </div>
       </div>
+
+      <ImageModal
+        images={modalImages}
+        currentIndex={currentImageIndex}
+        isOpen={isImageModalOpen}
+        onClose={closeImageModal}
+        onNext={nextImage}
+        onPrev={prevImage}
+      />
     </motion.section>
   );
 }
