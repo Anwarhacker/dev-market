@@ -35,33 +35,31 @@ export default function CloudinarySetup() {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="bg-white rounded-xl shadow-lg p-4 sm:p-6 lg:p-8 xl:p-10 2xl:p-12 mb-6 sm:mb-8 lg:mb-10 xl:mb-12 border border-green-700"
+      className="bg-white rounded-xl shadow-lg p-6 md:p-8 border border-blue-700"
     >
-      <div className="flex items-center mb-4 sm:mb-6 lg:mb-8 xl:mb-10">
-        <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 bg-blue-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4 lg:mr-5 xl:mr-6 flex-shrink-0">
-          <span className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl">
-            ☁️
-          </span>
+      <div className="flex items-center mb-6">
+        <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+          <span className="text-2xl">☁️</span>
         </div>
         <div className="min-w-0 flex-1">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-gray-900 leading-tight">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
             Cloudinary Setup
           </h2>
-          <p className="text-gray-600 text-sm sm:text-base lg:text-lg xl:text-xl mt-1 lg:mt-2">
+          <p className="text-gray-600 text-sm md:text-base mt-1">
             Media management and image optimization service
           </p>
         </div>
       </div>
 
       <div className="space-y-6">
-        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 sm:p-5 lg:p-6 rounded-r-lg">
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
           <div className="flex items-start">
-            <Info className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-blue-600 mr-2 lg:mr-3 mt-0.5 flex-shrink-0" />
+            <Info className="h-5 w-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
             <div>
-              <h3 className="font-semibold text-blue-900 mb-1 lg:mb-2 text-sm sm:text-base lg:text-lg xl:text-xl">
+              <h3 className="font-semibold text-blue-900 mb-1 text-base">
                 Why Cloudinary?
               </h3>
-              <p className="text-blue-800 text-sm sm:text-base lg:text-lg xl:text-xl">
+              <p className="text-blue-800 text-sm">
                 Cloudinary provides powerful image and video management with
                 automatic optimization, transformation, and delivery through a
                 global CDN.
@@ -71,12 +69,12 @@ export default function CloudinarySetup() {
         </div>
 
         <div>
-          <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-900 mb-3 sm:mb-4 lg:mb-5 xl:mb-6">
+          <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
             Cloudinary Account Setup
           </h3>
-          <div className="space-y-8 lg:space-y-10 xl:space-y-12">
+          <div className="space-y-8">
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
+              <h4 className="font-semibold text-gray-900 mb-3 text-base">
                 Step 1: Create Cloudinary Account
               </h4>
               <img
@@ -113,7 +111,7 @@ export default function CloudinarySetup() {
                   )
                 }
               />
-              <p className="text-gray-700 text-sm sm:text-base">
+              <p className="text-gray-700 text-sm">
                 Visit{" "}
                 <a
                   href="https://cloudinary.com"
@@ -130,7 +128,7 @@ export default function CloudinarySetup() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
+              <h4 className="font-semibold text-gray-900 mb-3 text-base">
                 Step 2: Access Dashboard and Get API Keys
               </h4>
               <img
@@ -150,7 +148,7 @@ export default function CloudinarySetup() {
                   )
                 }
               />
-              <p className="text-gray-700 text-sm sm:text-base">
+              <p className="text-gray-700 text-sm">
                 After logging in, navigate to the Dashboard and Click to Go to
                 API keys . Here you'll find your Cloud Name, API Key, and API
                 Secret. You'll need these to configure your application.
@@ -158,7 +156,7 @@ export default function CloudinarySetup() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
+              <h4 className="font-semibold text-gray-900 mb-3 text-base">
                 Step 3: Cloudinary Information
               </h4>
               <img
@@ -178,13 +176,13 @@ export default function CloudinarySetup() {
                   )
                 }
               />
-              <p className="text-gray-700 text-sm sm:text-base">
+              <p className="text-gray-700 text-sm">
                 Here is the information you need to set up Cloudinary in your
                 application: cloud name, API key, and API secret.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
+              <h4 className="font-semibold text-gray-900 mb-3 text-base">
                 Step 4: the cloudinary API secret key
               </h4>
               <img
@@ -204,7 +202,7 @@ export default function CloudinarySetup() {
                   )
                 }
               />
-              <p className="text-gray-700 text-sm sm:text-base">
+              <p className="text-gray-700 text-sm">
                 Click to ********************** to reveal your API secret. You
                 will need this for your application's environment variables. it
                 ask for Verification code that send to your email PUT that code
@@ -213,68 +211,68 @@ export default function CloudinarySetup() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
+              <h4 className="font-semibold text-gray-900 mb-3 text-base">
                 Step 4: Configure Environment Variables
               </h4>
 
-              <div className="bg-gray-900 text-green-400 p-3 sm:p-4 rounded-lg font-mono text-xs sm:text-sm overflow-x-auto">
+              <div className="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto">
                 <div># Create .env.local file and add:</div>
-                <div className="mt-1 sm:mt-2">
+                <div className="mt-2">
                   CLOUDINARY_CLOUD_NAME=your_cloud_name
                 </div>
-                <div className="mt-1 sm:mt-2">
+                <div className="mt-2">
                   CLOUDINARY_API_KEY=your_api_key
                 </div>
-                <div className="mt-1 sm:mt-2">
+                <div className="mt-2">
                   CLOUDINARY_API_SECRET=your_api_secret
                 </div>
               </div>
             </div>
 
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
+              <h4 className="font-semibold text-gray-900 mb-3 text-base">
                 Step 5: Initialize Cloudinary in Your App
               </h4>
 
-              <div className="bg-gray-900 text-green-400 p-3 sm:p-4 rounded-lg font-mono text-xs sm:text-sm overflow-x-auto">
+              <div className="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto">
                 <div>// lib/cloudinary.js</div>
-                <div className="mt-1 sm:mt-2">
+                <div className="mt-2">
                   import &#123; v2 as cloudinary &#125; from 'cloudinary';
                 </div>
-                <div className="mt-1 sm:mt-2"></div>
-                <div className="mt-1 sm:mt-2">cloudinary.config(&#123;</div>
-                <div className="ml-2 sm:ml-4">
+                <div className="mt-2"></div>
+                <div className="mt-2">cloudinary.config(&#123;</div>
+                <div className="ml-4">
                   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
                 </div>
-                <div className="ml-2 sm:ml-4">
+                <div className="ml-4">
                   api_key: process.env.CLOUDINARY_API_KEY,
                 </div>
-                <div className="ml-2 sm:ml-4">
+                <div className="ml-4">
                   api_secret: process.env.CLOUDINARY_API_SECRET
                 </div>
-                <div className="mt-1 sm:mt-2">&#125;);</div>
-                <div className="mt-1 sm:mt-2"></div>
-                <div className="mt-1 sm:mt-2">export default cloudinary;</div>
+                <div className="mt-2">&#125;);</div>
+                <div className="mt-2"></div>
+                <div className="mt-2">export default cloudinary;</div>
               </div>
             </div>
 
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
+              <h4 className="font-semibold text-gray-900 mb-3 text-base">
                 Step 6: Test Image Upload
               </h4>
 
-              <div className="bg-gray-900 text-green-400 p-3 sm:p-4 rounded-lg font-mono text-xs sm:text-sm overflow-x-auto">
+              <div className="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto">
                 <div>// Test upload function</div>
-                <div className="mt-1 sm:mt-2">
+                <div className="mt-2">
                   export const uploadToCloudinary = async (file) &gt; &#123;
                 </div>
-                <div className="ml-2 sm:ml-4">
+                <div className="ml-4">
                   const result = await cloudinary.uploader.upload(file);
                 </div>
-                <div className="ml-2 sm:ml-4">return result;</div>
-                <div className="mt-1 sm:mt-2">&#125;;</div>
+                <div className="ml-4">return result;</div>
+                <div className="mt-2">&#125;;</div>
               </div>
-              <p className="text-gray-700 text-sm sm:text-base mt-3">
+              <p className="text-gray-700 text-sm mt-3">
                 Test your setup by uploading an image and verifying it appears
                 in your Cloudinary Media Library. Check the console for the
                 upload result and ensure the image URL is accessible.
@@ -284,12 +282,12 @@ export default function CloudinarySetup() {
         </div>
 
         <div>
-          <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-900 mb-3 sm:mb-4 lg:mb-5 xl:mb-6">
+          <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
             Usage Examples
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-            <div className="border border-gray-200 rounded-lg p-3 sm:p-4">
-              <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="border border-gray-200 rounded-lg p-4">
+              <h4 className="font-semibold text-gray-900 mb-2 text-base">
                 Basic Upload
               </h4>
               <div className="bg-gray-900 text-green-400 p-3 rounded font-mono text-xs overflow-x-auto">
@@ -299,8 +297,8 @@ export default function CloudinarySetup() {
                 <div className="mt-1">console.log(result.secure_url);</div>
               </div>
             </div>
-            <div className="border border-gray-200 rounded-lg p-3 sm:p-4">
-              <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">
+            <div className="border border-gray-200 rounded-lg p-4">
+              <h4 className="font-semibold text-gray-900 mb-2 text-base">
                 Image Transformation
               </h4>
               <div className="bg-gray-900 text-green-400 p-3 rounded font-mono text-xs overflow-x-auto">

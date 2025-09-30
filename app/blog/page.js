@@ -85,10 +85,10 @@ export default function BlogPage() {
         </section>
 
         {/* Page Content */}
-        <div className="max-w-7xl mx-auto px-2 sm:px-3 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Sidebar - Desktop */}
-            <aside className="hidden md:block md:col-span-1">
+            <aside className="hidden lg:block lg:col-span-1">
               <div className="sticky top-24 bg-white rounded-xl shadow-lg p-5 border border-gray-200">
                 <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
                   <BookOpen className="h-5 w-5 mr-2 text-purple-600" />
@@ -116,19 +116,19 @@ export default function BlogPage() {
             {/* Mobile Menu Floating Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden fixed bottom-3 right-3 sm:bottom-4 sm:right-4 z-50 bg-purple-600 text-white p-2.5 sm:p-3 rounded-full shadow-2xl hover:bg-purple-700 transition-transform transform hover:scale-110"
+              className="lg:hidden fixed bottom-4 right-4 z-50 bg-purple-600 text-white p-3 rounded-full shadow-2xl hover:bg-purple-700 transition-transform transform hover:scale-110"
             >
               {mobileMenuOpen ? (
-                <X className="h-5 w-5 sm:h-6 sm:w-6" />
+                <X className="h-6 w-6" />
               ) : (
-                <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
+                <Menu className="h-6 w-6" />
               )}
             </button>
 
             {/* Mobile Navigation Drawer */}
             {mobileMenuOpen && (
               <div
-                className="md:hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
+                className="lg:hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <motion.div
@@ -136,35 +136,35 @@ export default function BlogPage() {
                   animate={{ x: 0 }}
                   exit={{ x: "100%" }}
                   transition={{ type: "spring", damping: 25 }}
-                  className="absolute right-0 top-0 bottom-0 w-[80%] max-w-xs sm:max-w-sm bg-white shadow-2xl overflow-y-auto"
+                  className="absolute right-0 top-0 bottom-0 w-full max-w-xs bg-white shadow-2xl overflow-y-auto"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <div className="p-3 sm:p-4">
-                    <div className="flex items-center justify-between mb-3 sm:mb-4">
-                      <h3 className="text-base sm:text-lg font-bold text-gray-900 flex items-center">
-                        <BookOpen className="h-4 w-4 sm:h-5 sm:w-5 mr-1.5 sm:mr-2 text-purple-600" />
+                  <div className="p-4">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-lg font-bold text-gray-900 flex items-center">
+                        <BookOpen className="h-5 w-5 mr-2 text-purple-600" />
                         Quick Navigation
                       </h3>
                       <button
                         onClick={() => setMobileMenuOpen(false)}
-                        className="p-1.5 sm:p-2 hover:bg-gray-100 rounded-lg"
+                        className="p-2 hover:bg-gray-100 rounded-lg"
                       >
-                        <X className="h-4 w-4 sm:h-5 sm:w-5" />
+                        <X className="h-5 w-5" />
                       </button>
                     </div>
-                    <nav className="space-y-1.5 sm:space-y-2">
+                    <nav className="space-y-2">
                       {sections.map((section) => (
                         <button
                           key={section.id}
                           onClick={() => scrollToSection(section.id)}
-                          className={`w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg flex items-center transition-all duration-300 ${
+                          className={`w-full px-4 py-3 rounded-lg flex items-center transition-all duration-300 ${
                             activeSection === section.id
                               ? "bg-purple-600 text-white font-bold"
                               : "bg-gray-100 text-gray-800 hover:bg-purple-50"
                           }`}
                         >
-                          <span className="mr-2">{section.icon}</span>
-                          <span className="text-sm sm:text-base">{section.title}</span>
+                          <span className="mr-3">{section.icon}</span>
+                          <span className="text-base">{section.title}</span>
                         </button>
                       ))}
                     </nav>
@@ -174,28 +174,28 @@ export default function BlogPage() {
             )}
 
             {/* Main Content */}
-            <main className="md:col-span-3">
+            <main className="lg:col-span-3">
               {/* Mobile Quick Jump Chips */}
-              <div className="md:hidden mb-3 sm:mb-4">
-                <div className="bg-white rounded-lg sm:rounded-xl shadow-md p-2.5 sm:p-3.5 border border-gray-200">
-                  <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-1.5 sm:mb-2.5 flex items-center">
-                    <BookOpen className="h-4 w-4 sm:h-5 sm:w-5 mr-1.5 sm:mr-2 text-purple-600" />
+              <div className="lg:hidden mb-6">
+                <div className="bg-white rounded-xl shadow-md p-3.5 border border-gray-200">
+                  <h3 className="text-sm font-bold text-gray-900 mb-2.5 flex items-center">
+                    <BookOpen className="h-5 w-5 mr-2 text-purple-600" />
                     Quick Jump
                   </h3>
-                  <div className="flex flex-wrap gap-1 sm:gap-1.5">
+                  <div className="flex flex-wrap gap-2">
                     {sections.map((section) => (
                       <button
                         key={section.id}
                         onClick={() => scrollToSection(section.id)}
-                        className={`px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs transition-all duration-300 ${
+                        className={`px-3 py-1 rounded-full text-xs transition-all duration-300 ${
                           activeSection === section.id
                             ? "bg-purple-600 text-white"
                             : "bg-gray-100 text-gray-800 hover:bg-purple-50"
                         }`}
                       >
                         <span className="inline-flex items-center">
-                          <span className="mr-1">{section.icon}</span>
-                          <span className="truncate max-w-[80px] sm:max-w-none">{section.title}</span>
+                          <span className="mr-1.5">{section.icon}</span>
+                          <span>{section.title}</span>
                         </span>
                       </button>
                     ))}
@@ -204,7 +204,7 @@ export default function BlogPage() {
               </div>
 
               {/* Setup Sections */}
-              <div className="space-y-6 sm:space-y-8 md:space-y-10">
+              <div className="space-y-8 md:space-y-12">
                 <NodeJSSetup />
                 <MongoDBSetup />
                 <CloudinarySetup />
