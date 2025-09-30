@@ -35,31 +35,33 @@ export default function MongoDBSetup() {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="bg-white rounded-xl shadow-lg p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8 border border-green-700"
+      className="bg-white rounded-lg sm:rounded-xl shadow-md sm:shadow-lg p-3 sm:p-5 md:p-6 lg:p-8 xl:p-10 mb-4 sm:mb-6 md:mb-8 lg:mb-10 border border-green-700"
     >
-      <div className="flex items-center mb-4 sm:mb-6">
-        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
-          <span className="text-xl sm:text-2xl">🍃</span>
+      <div className="flex items-center mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+        <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-green-100 rounded-md sm:rounded-lg flex items-center justify-center mr-2 sm:mr-3 md:mr-4 lg:mr-5 flex-shrink-0">
+          <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl">
+            🍃
+          </span>
         </div>
         <div className="min-w-0 flex-1">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 leading-tight">
             MongoDB Setup
           </h2>
-          <p className="text-gray-600 text-sm sm:text-base mt-1">
+          <p className="text-gray-600 text-xs sm:text-sm md:text-base lg:text-lg mt-0.5 sm:mt-1 md:mt-1.5">
             Install and configure MongoDB database
           </p>
         </div>
       </div>
 
-      <div className="space-y-6">
-        <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
+      <div className="space-y-4 sm:space-y-5 md:space-y-6">
+        <div className="bg-green-50 border-l-4 border-green-500 p-3 sm:p-4 md:p-5 rounded-r-lg">
           <div className="flex items-start">
-            <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+            <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-green-600 mr-1.5 sm:mr-2 md:mr-3 mt-0.5 flex-shrink-0" />
             <div>
-              <h3 className="font-semibold text-green-900 mb-1">
+              <h3 className="font-semibold text-green-900 mb-1 md:mb-2 text-xs sm:text-sm md:text-base lg:text-lg">
                 MongoDB Atlas (Recommended)
               </h3>
-              <p className="text-green-800 text-sm">
+              <p className="text-green-800 text-xs sm:text-sm md:text-base lg:text-lg">
                 Cloud-hosted MongoDB - no local installation needed
               </p>
             </div>
@@ -67,18 +69,18 @@ export default function MongoDBSetup() {
         </div>
 
         <div>
-          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">
+          <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mb-4 lg:mb-5">
             MongoDB Atlas Setup
           </h3>
-          <div className="space-y-8">
+          <div className="space-y-5 sm:space-y-6 md:space-y-8 lg:space-y-10">
             <div>
-              <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
+              <h4 className="font-semibold text-gray-900 mb-2 sm:mb-3 text-xs sm:text-sm md:text-base lg:text-lg">
                 Step 1: Visit MongoDB Atlas and Sign Up
               </h4>
               <img
                 src="https://res.cloudinary.com/dobzhyq0g/image/upload/v1759086337/1st_pivioq.png"
                 alt="MongoDB Atlas Homepage"
-                className="w-full rounded-lg shadow-md mb-4 border-2 p-2 border-blue-300 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+                className="w-full rounded-md sm:rounded-lg shadow-sm sm:shadow-md mb-3 sm:mb-4 border border-blue-300 sm:border-2 p-1 sm:p-2 md:p-3 cursor-pointer hover:shadow-lg transition-shadow duration-300"
                 onClick={() =>
                   openImageModal(
                     [
@@ -681,10 +683,10 @@ export default function MongoDBSetup() {
         </div>
 
         <div>
-          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">
+          <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-900 mb-3 sm:mb-4 lg:mb-5 xl:mb-6">
             Connection String Format
           </h3>
-          <div className="bg-gray-900 text-green-400 p-3 sm:p-4 rounded-lg font-mono text-xs sm:text-sm overflow-x-auto">
+          <div className="bg-gray-900 text-green-400 p-3 sm:p-4 lg:p-5 xl:p-6 rounded-lg font-mono text-xs sm:text-sm lg:text-base xl:text-lg overflow-x-auto">
             <div>
               mongoose.connect('mongodb+srv://username:password@cluster.mongodb.net/database_name',{" "}
               {"{"}

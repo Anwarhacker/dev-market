@@ -35,31 +35,33 @@ export default function CloudinarySetup() {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="bg-white rounded-xl shadow-lg p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8 border border-green-700"
+      className="bg-white rounded-xl shadow-lg p-4 sm:p-6 lg:p-8 xl:p-10 2xl:p-12 mb-6 sm:mb-8 lg:mb-10 xl:mb-12 border border-green-700"
     >
-      <div className="flex items-center mb-4 sm:mb-6">
-        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
-          <span className="text-xl sm:text-2xl">☁️</span>
+      <div className="flex items-center mb-4 sm:mb-6 lg:mb-8 xl:mb-10">
+        <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 bg-blue-100 rounded-lg flex items-center justify-center mr-3 sm:mr-4 lg:mr-5 xl:mr-6 flex-shrink-0">
+          <span className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl">
+            ☁️
+          </span>
         </div>
         <div className="min-w-0 flex-1">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-gray-900 leading-tight">
             Cloudinary Setup
           </h2>
-          <p className="text-gray-600 text-sm sm:text-base mt-1">
+          <p className="text-gray-600 text-sm sm:text-base lg:text-lg xl:text-xl mt-1 lg:mt-2">
             Media management and image optimization service
           </p>
         </div>
       </div>
 
       <div className="space-y-6">
-        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 sm:p-5 lg:p-6 rounded-r-lg">
           <div className="flex items-start">
-            <Info className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
+            <Info className="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7 text-blue-600 mr-2 lg:mr-3 mt-0.5 flex-shrink-0" />
             <div>
-              <h3 className="font-semibold text-blue-900 mb-1">
+              <h3 className="font-semibold text-blue-900 mb-1 lg:mb-2 text-sm sm:text-base lg:text-lg xl:text-xl">
                 Why Cloudinary?
               </h3>
-              <p className="text-blue-800 text-sm">
+              <p className="text-blue-800 text-sm sm:text-base lg:text-lg xl:text-xl">
                 Cloudinary provides powerful image and video management with
                 automatic optimization, transformation, and delivery through a
                 global CDN.
@@ -69,10 +71,10 @@ export default function CloudinarySetup() {
         </div>
 
         <div>
-          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">
+          <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-900 mb-3 sm:mb-4 lg:mb-5 xl:mb-6">
             Cloudinary Account Setup
           </h3>
-          <div className="space-y-8">
+          <div className="space-y-8 lg:space-y-10 xl:space-y-12">
             <div>
               <h4 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">
                 Step 1: Create Cloudinary Account
@@ -282,7 +284,7 @@ export default function CloudinarySetup() {
         </div>
 
         <div>
-          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">
+          <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-900 mb-3 sm:mb-4 lg:mb-5 xl:mb-6">
             Usage Examples
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
