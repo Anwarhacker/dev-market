@@ -93,7 +93,7 @@ export default function Home() {
                   ⚙️ Admin Panel
                 </Link>
                 <Link
-                  href="/blog"
+                  href="/mongoatlas"
                   className="group relative border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-slate-900 transition-all duration-300 backdrop-blur-sm"
                 >
                   📚 Documentation
