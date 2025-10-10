@@ -425,7 +425,7 @@ export default function Home() {
           </section>
 
           {/* Custom Development Section */}
-          <section className="py-20 sm:py-24 bg-gradient-to-br from-indigo-900 via-blue-900 to-slate-900 text-white relative overflow-hidden">
+          <section className="py-20 sm:py-24 bg-gradient-to-br from-indigo-900 via-green-900 m-5 mb-15 to-slate-900 text-white relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-purple-500/10 to-transparent"></div>
             <div className="absolute -top-20 -right-20 w-60 h-60 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
