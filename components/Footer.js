@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import BacklinkFooter from "./BacklinkFooter";
 
 export default function Footer() {
   return (
@@ -99,11 +100,20 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="/admin"
+                  href="/about"
                   className="text-gray-300 hover:text-purple-400 transition-colors duration-300 flex items-center group"
                 >
                   <span className="w-0 group-hover:w-2 h-0.5 bg-purple-400 transition-all duration-300 mr-0 group-hover:mr-2"></span>
-                  Admin
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/contact"
+                  className="text-gray-300 hover:text-purple-400 transition-colors duration-300 flex items-center group"
+                >
+                  <span className="w-0 group-hover:w-2 h-0.5 bg-purple-400 transition-all duration-300 mr-0 group-hover:mr-2"></span>
+                  Contact
                 </a>
               </li>
             </ul>
@@ -159,11 +169,26 @@ export default function Footer() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-12 pt-8 border-t border-gray-700/50 text-center"
         >
+          <div className="flex flex-wrap justify-center gap-6 mb-4 text-sm">
+            <a href="/privacy-policy" className="text-gray-400 hover:text-purple-400 transition-colors">
+              Privacy Policy
+            </a>
+            <a href="/terms-of-service" className="text-gray-400 hover:text-purple-400 transition-colors">
+              Terms of Service
+            </a>
+            <a href="/about" className="text-gray-400 hover:text-purple-400 transition-colors">
+              About Us
+            </a>
+            <a href="/contact" className="text-gray-400 hover:text-purple-400 transition-colors">
+              Contact
+            </a>
+          </div>
           <p className="text-gray-400">
             © 2024 DevMarket. Crafted with ❤️ for developers worldwide.
           </p>
         </motion.div>
       </div>
+      <BacklinkFooter />
     </motion.footer>
   );
 }

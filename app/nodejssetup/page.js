@@ -544,7 +544,7 @@ set PATH=%PATH%;"C:\Program Files\nodejs\"
                       Permission Errors During Installation
                     </h4>
                     <p className="text-red-800 text-sm mb-2">
-                      Run the installer as Administrator, or use NVM for
+                      Run the installer as administrator, or use NVM for
                       user-space installation.
                     </p>
                   </div>

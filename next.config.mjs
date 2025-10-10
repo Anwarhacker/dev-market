@@ -1,9 +1,42 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Next.js 15+ compatible configuration
-  reactStrictMode: true,
-  // SWC minification is enabled by default in Next.js 15+
-  // No need to explicitly set swcMinify: true
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+        ],
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

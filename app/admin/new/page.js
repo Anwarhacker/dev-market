@@ -176,7 +176,7 @@ export default function NewProjectPage() {
                 className="flex items-center text-blue-600 hover:text-blue-800 self-start"
               >
                 <ArrowLeft className="h-5 w-5 mr-2" />
-                Back to Admin
+                Back to admin
               </button>
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">
                 Add New Project

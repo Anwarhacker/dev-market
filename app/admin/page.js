@@ -7,7 +7,7 @@ import Footer from "../../components/Footer";
 import { useRouter } from "next/navigation";
 import { Lock, Plus, Edit, Trash2 } from "lucide-react";
 
-export default function AdminPage() {
+export default function adminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,8 +29,8 @@ export default function AdminPage() {
     e.preventDefault();
     // Simple authentication - in production, use proper auth
     if (
-      email === process.env.NEXT_PUBLIC_ADMIN_EMAIL &&
-      password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD
+      email === process.env.NEXT_PUBLIC_admin_EMAIL &&
+      password === process.env.NEXT_PUBLIC_admin_PASSWORD
     ) {
       setIsAuthenticated(true);
       localStorage.setItem("adminAuthenticated", "true");
@@ -243,7 +243,7 @@ export default function AdminPage() {
           >
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">
-                Admin Dashboard
+                admin Dashboard
               </h1>
               <div className="flex flex-col sm:flex-row gap-2">
                 <button
