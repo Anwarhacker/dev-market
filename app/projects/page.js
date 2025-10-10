@@ -43,8 +43,7 @@ export default function ProjectsPage() {
     try {
       const response = await fetch("/api/projects");
       const data = await response.json();
-      const projects = data.projects || data;
-      setProjects(Array.isArray(projects) ? projects : []);
+      setProjects(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("Error fetching projects:", error);
       setProjects([]);

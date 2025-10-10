@@ -49,12 +49,11 @@ export default function AdminPage() {
     try {
       const response = await fetch("/api/projects");
       const data = await response.json();
-      const projects = data.projects || data;
-      setProjects(Array.isArray(projects) ? projects : []);
+      setProjects(Array.isArray(data) ? data : []);
       setStats({
-        total: projects.length || 0,
-        major: Array.isArray(projects) ? projects.filter((p) => p.majorProject).length : 0,
-        minor: Array.isArray(projects) ? projects.filter((p) => !p.majorProject).length : 0,
+        total: data.length || 0,
+        major: data.filter((p) => p.majorProject).length || 0,
+        minor: data.filter((p) => !p.majorProject).length || 0,
       });
     } catch (error) {
       console.error("Error fetching projects:", error);
