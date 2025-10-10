@@ -19,14 +19,26 @@ export default function Home() {
     // Fetch major projects
     fetch("/api/projects/major")
       .then((res) => res.json())
-      .then((data) => setMajorProjects(data))
-      .catch((err) => console.error("Error fetching major projects:", err));
+      .then((data) => {
+        const projects = Array.isArray(data) ? data : [];
+        setMajorProjects(projects);
+      })
+      .catch((err) => {
+        console.error("Error fetching major projects:", err);
+        setMajorProjects([]);
+      });
 
     // Fetch minor projects
     fetch("/api/projects/minor")
       .then((res) => res.json())
-      .then((data) => setMinorProjects(data))
-      .catch((err) => console.error("Error fetching minor projects:", err));
+      .then((data) => {
+        const projects = Array.isArray(data) ? data : [];
+        setMinorProjects(projects);
+      })
+      .catch((err) => {
+        console.error("Error fetching minor projects:", err);
+        setMinorProjects([]);
+      });
   }, []);
 
   const handleBuyNow = (project) => {

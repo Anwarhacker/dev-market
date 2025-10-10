@@ -43,16 +43,18 @@ export default function ProjectsPage() {
     try {
       const response = await fetch("/api/projects");
       const data = await response.json();
-      setProjects(data);
+      const projects = data.projects || data;
+      setProjects(Array.isArray(projects) ? projects : []);
     } catch (error) {
       console.error("Error fetching projects:", error);
+      setProjects([]);
     } finally {
       setLoading(false);
     }
   };
 
   const filterProjects = () => {
-    let filtered = projects;
+    let filtered = Array.isArray(projects) ? projects : [];
 
     if (searchTerm) {
       filtered = filtered.filter(

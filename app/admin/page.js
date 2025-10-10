@@ -49,14 +49,17 @@ export default function AdminPage() {
     try {
       const response = await fetch("/api/projects");
       const data = await response.json();
-      setProjects(data);
+      const projects = data.projects || data;
+      setProjects(Array.isArray(projects) ? projects : []);
       setStats({
-        total: data.length,
-        major: data.filter((p) => p.majorProject).length,
-        minor: data.filter((p) => !p.majorProject).length,
+        total: projects.length || 0,
+        major: Array.isArray(projects) ? projects.filter((p) => p.majorProject).length : 0,
+        minor: Array.isArray(projects) ? projects.filter((p) => !p.majorProject).length : 0,
       });
     } catch (error) {
       console.error("Error fetching projects:", error);
+      setProjects([]);
+      setStats({ total: 0, major: 0, minor: 0 });
     }
   };
 
@@ -127,6 +130,7 @@ export default function AdminPage() {
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white"
                       placeholder="admin@example.com"
+                      autoComplete="email"
                       required
                     />
                     <div className="absolute right-3 top-3.5 text-gray-400">
@@ -166,6 +170,7 @@ export default function AdminPage() {
                       onChange={(e) => setPassword(e.target.value)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white"
                       placeholder="Enter your password"
+                      autoComplete="current-password"
                       required
                     />
                     <div className="absolute right-3 top-3.5 text-gray-400">
