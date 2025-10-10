@@ -38,7 +38,7 @@ export default function Modal({ isOpen, onClose, project }) {
               <div>
                 <h2 className="text-xl font-bold">Contact Developer</h2>
                 <p className="text-purple-100 text-sm">
-                  Let's start a conversation
+                  Let&apos;s start a conversation
                 </p>
               </div>
             </div>
@@ -124,7 +124,7 @@ export default function Modal({ isOpen, onClose, project }) {
                 </a>
 
                 <a
-                  href="https://wa.me/9663858568?text=Hi, I'm interested in purchasing your project."
+                  href="https://wa.me/9663858568?text=Hi, I&apos;m interested in purchasing your project."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center justify-between w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white p-4 rounded-xl hover:from-green-600 hover:to-emerald-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"

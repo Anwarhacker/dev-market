@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Link from "next/link";
 import BacklinkFooter from "./BacklinkFooter";
 
 export default function Footer() {
@@ -81,22 +82,22 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 flex flex-col justify-center items-center">
               <li>
-                <a
+                <Link
                   href="/"
                   className="text-gray-300 hover:text-purple-400 transition-colors duration-300 flex items-center group"
                 >
                   <span className="w-0 group-hover:w-2 h-0.5 bg-purple-400 transition-all duration-300 mr-0 group-hover:mr-2 text-center"></span>
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/projects"
                   className="text-gray-300 hover:text-purple-400 transition-colors duration-300 flex items-center group"
                 >
                   <span className="w-0 group-hover:w-2 h-0.5 bg-purple-400 transition-all duration-300 mr-0 group-hover:mr-2"></span>
                   Projects
-                </a>
+                </Link>
               </li>
               <li>
                 <a

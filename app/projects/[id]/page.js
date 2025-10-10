@@ -101,7 +101,7 @@ export default function ProjectDetailsPage() {
               Project Not Found
             </h1>
             <p className="text-gray-600 mb-6">
-              The project you're looking for doesn't exist.
+              The project you&apos;re looking for doesn&apos;t exist.
             </p>
             <Link
               href="/projects"

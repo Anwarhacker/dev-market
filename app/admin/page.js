@@ -7,7 +7,7 @@ import Footer from "../../components/Footer";
 import { useRouter } from "next/navigation";
 import { Lock, Plus, Edit, Trash2 } from "lucide-react";
 
-export default function adminPage() {
+export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

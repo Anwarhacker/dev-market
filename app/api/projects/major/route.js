@@ -4,7 +4,10 @@ import Project from "@/models/Project.js";
 export async function GET() {
   try {
     await connectToDatabase();
-    const majorProjects = await Project.find({ majorProject: true }).limit(6);
+    const majorProjects = await Project.find({ majorProject: true })
+      .sort({ createdAt: -1 })
+      .limit(6)
+      .lean();
     return Response.json(majorProjects);
   } catch (error) {
     console.error("Error fetching major projects:", error);
